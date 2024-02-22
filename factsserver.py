@@ -2,21 +2,21 @@ import socket
 import random
 
 cat_facts = ["Cats have five toes on their front paws, but only four on their back paws.",
-             "Cats have a third eyelid called a haw.",
-             "A cat's nose is ridged with a unique pattern, just like a human fingerprint",
+             "A tiger is a cat. It's the biggest species of the cat family. Therefore, if you have a pet tiger, you have a pet cat. Maybe go do battle with a friend who has a pet silver wolf. We know which one would win.",
+             "A cat does not indeed have nine lives. They have one.",
              "Cats have a specialized collarbone that allows them to always land on their feet.",
              "Cats are better than dogs.",]
 
-dog_facts = ["Dogs have a sense of time. It's been proven that they know the difference between a hour and five.",
+dog_facts = ["Dogs have a sense of time; they can tell the difference between an hour and five hours.",
              "Dogs can see in the dark.",
              "Dogs have three eyelids. The third lid, called a nictitating membrane or haw, keeps the eye lubricated and protected.",
-             "Dogs have about 1,700 taste buds.",
+             "Dogs are from a long line of canids that have been domesticated. They were once wolves!",
              "Some saliva of dogs have healing properties."]
 
 sloth_facts = ["Sloths are the world's slowest mammal.",
-               "Sloths are so slow that algae grows on their fur.",
+               "Sloths move so slowly that algae grows on their fur.",
                "Sloths are solitary animals.",
-               "Sloths only urinate/defecate once a week.",
+               "Sloths use nature's bathroom once a week.",
                "Sloths are pretty good at swimming."]
 
 film_facts = ["Michelle Yeoh is the first Asian woman to win the Academy Award for Best Actress.",
