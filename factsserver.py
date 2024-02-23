@@ -1,6 +1,8 @@
 import socket
 import random
 
+# Written by Pride
+
 cat_facts = ["Cats have five toes on their front paws, but only four on their back paws.",
              "A tiger is a cat. It's the biggest species of the cat family. Therefore, if you have a pet tiger, you have a pet cat. Maybe go do battle with a friend who has a pet silver wolf. We know which one would win.",
              "A cat does not indeed have nine lives. They have one.",
@@ -29,34 +31,38 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(("127.0.0.1", 8888))
 server.listen(1)
 
+# I'm going to limit the server to only one client at a time
+# since I don't want to implement multithreading. And I don't have to.
+
 print("Waiting for a connection...")
 
 while True:
     try:
-        client, address = server.accept()
+        connection, address = server.accept()
         print(f"Connection from {address} has been established!")
 
         while True:
-            data = client.recv(1024)
+            data = connection.recv(1024)
             if not data:
                 break
             print(f"Received: {data.decode('utf-8')}")
 
             if data.decode("utf-8") == "cat":
-                client.send(bytes("> " + random.choice(cat_facts), "utf-8"))
+                connection.send(bytes("> " + random.choice(cat_facts), "utf-8"))
             elif data.decode("utf-8") == "dog":
-                client.send(bytes("> " + random.choice(dog_facts), "utf-8"))
+                connection.send(bytes("> " + random.choice(dog_facts), "utf-8"))
             elif data.decode("utf-8") == "sloth":
-                client.send(bytes("> " + random.choice(sloth_facts), "utf-8"))
+                connection.send(bytes("> " + random.choice(sloth_facts), "utf-8"))
             elif data.decode("utf-8") == "film":
-                client.send(bytes("> " + random.choice(film_facts), "utf-8"))
+                connection.send(bytes("> " + random.choice(film_facts), "utf-8"))
             elif data.decode("utf-8") == "quit" or data.decode("utf-8") == "exit" or data.decode("utf-8") == "peace":
-                client.send(bytes("> Peace.", "utf-8"))
-                client.close()
+                connection.send(bytes("> Peace.", "utf-8"))
+                connection.close()
                 break
             else:
-                client.send(bytes("> Not sure what that is. Ask me again.", "utf-8"))
+                connection.send(bytes("> Not sure what that is. Ask me again.", "utf-8"))
         
+        # Because I limited the connection to one client, I'll close the server after the client disconnects.
         print("Connection closed. Shutting down server.")
         server.close()
     except:
