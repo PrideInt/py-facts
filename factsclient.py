@@ -18,4 +18,4 @@ else:
         data = client.recv(1024)
         print(data.decode("utf-8"))
 
-        take = input("Wanna hear another fact?\n")
+        take = input("Wanna hear another fact? Choose cat, dog, sloth or film. Or quit.\n")
