@@ -11,6 +11,7 @@ take = input("Wanna hear a fact about a cat? Dog? Sloth? What, film? Tell me.\n"
 
 if take == "quit":
     print("Peace.")
+    client.close()
 else:
     while take != "quit":
         client.send(take.encode())
